@@ -1,25 +1,38 @@
-import { Avatar, Dropdown, Navbar } from 'flowbite-react';
-import React from 'react';
+import { Avatar, Button, Dropdown, Navbar, Tooltip } from 'flowbite-react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../providers/AuthProvider';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
+    const{user}=useContext(AuthContext)
+
     return (
         <>
-            <Navbar
+ <Navbar
   fluid={true}
   rounded={true}
+  className='lg:mx-8'
 >
-  <Navbar.Brand href="https://flowbite.com/">
+  <Navbar.Brand to='/'>
     <img
-      src="https://flowbite.com/docs/images/logo.svg"
+      src="https://www.shutterstock.com/image-vector/bangladesh-restaurant-food-logo-flag-260nw-2283781361.jpg"
       className="mr-3 h-6 sm:h-9"
       alt="Flowbite Logo"
     />
     <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-      Flowbite
+    Banglar Chefs
     </span>
   </Navbar.Brand>
   <div className="flex md:order-2">
-    <Dropdown
+ {
+    user? <>
+         <Tooltip
+            content={
+                user.displayName? user.displayName: 'Name not avilable'
+            }
+            trigger="hover"
+          >
+         <Dropdown
       arrowIcon={false}
       inline={true}
       label={<Avatar alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded={true}/>}
@@ -32,20 +45,22 @@ const Header = () => {
           name@flowbite.com
         </span>
       </Dropdown.Header>
-      <Dropdown.Item>
-        Dashboard
-      </Dropdown.Item>
-      <Dropdown.Item>
-        Settings
-      </Dropdown.Item>
-      <Dropdown.Item>
-        Earnings
-      </Dropdown.Item>
       <Dropdown.Divider />
       <Dropdown.Item>
         Sign out
       </Dropdown.Item>
     </Dropdown>
+          </Tooltip>
+    </> 
+    :
+    <>
+  <Link>
+  <Button gradientMonochrome="success">
+      Login
+    </Button>
+  </Link>
+  </>
+ }
     <Navbar.Toggle />
   </div>
   <Navbar.Collapse>
@@ -56,16 +71,10 @@ const Header = () => {
       Home
     </Navbar.Link>
     <Navbar.Link href="/navbars">
+      Blog
+    </Navbar.Link> 
+    <Navbar.Link href="/navbars">
       About
-    </Navbar.Link>
-    <Navbar.Link href="/navbars">
-      Services
-    </Navbar.Link>
-    <Navbar.Link href="/navbars">
-      Pricing
-    </Navbar.Link>
-    <Navbar.Link href="/navbars">
-      Contact
     </Navbar.Link>
   </Navbar.Collapse>
 </Navbar>
