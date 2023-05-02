@@ -1,14 +1,59 @@
 import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const Login = () => {
+  const {user, login, googleLogin,githubLogin,}=useContext(AuthContext)
     const [error, setError]=useState('')
     const [success, setSuccess]=useState('')
+
+    const handleGoogleLogin=()=>{
+      googleLogin()
+      .then(res=>{
+     setSuccess('Login with Google successful')
+     setError('')
+      })
+      .catch(error=>{
+        setError(error.message)
+        setSuccess('')
+      })
+    }
+    const handleGithubLogin=()=>{
+      githubLogin()
+      .then(res=>{
+        setSuccess('Login with Github successful')
+        setError('')
+         })
+         .catch(error=>{
+           setError(error.message)
+           setSuccess('')
+         })
+    }
+
+    const handleLogin=e=>{
+      e.preventDefault()
+      const form=e.target 
+      const email=form.email.value 
+      const password=form.password.value 
+      
+      setError('')
+      setSuccess('')
+
+      login(email,password)
+      .then(res=>{
+        setSuccess('Login successful')
+        form.reset()
+      })
+      .catch(error=>{
+        setError('Please check your email and password')
+      })
+    }
+    
     return (
         <div className='my-20 w-[400px] mx-auto border p-8'>
             <h1 className='my-8 font-bold text-4xl'>Login here</h1>
-            <form className="flex flex-col gap-4">
+            <form onSubmit={handleLogin} className="flex flex-col gap-4">
   <div>
     <div className="mb-2 block">
       <Label
@@ -45,8 +90,8 @@ const Login = () => {
       Remember me
     </Label>
   </div>
-<span>{error}</span>
-<span>{success}</span>
+<span className='text-red-500'>{error}</span>
+<span className='text-green-500'>{success}</span>
   <Button type="submit">
     Login
   </Button>
@@ -60,6 +105,7 @@ const Login = () => {
       color="success"
       pill={true}
       className='mx-auto'
+      onClick={handleGoogleLogin}
     >
    Continue with Google
     </Button>
@@ -67,6 +113,7 @@ const Login = () => {
       color="success"
       pill={true}
       className='mx-auto'
+      onClick={handleGithubLogin}
     >
    Continue with GitHub
     </Button>

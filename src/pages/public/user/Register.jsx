@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 
 const Register = () => {
-  const {createUser, profileUpdate,googleLogin}=useContext(AuthContext)
+  const {createUser, profileUpdate,googleLogin,githubLogin}=useContext(AuthContext)
     const [error, setError]=useState('')
     const [success, setSuccess]=useState('')
     const [accepted,setAccepted]=useState(false)
@@ -51,6 +51,26 @@ const Register = () => {
 
     const handleGoogleLogin=()=>{
       googleLogin()
+      .then(res=>{
+        setSuccess('Login with Google successful')
+        setError('')
+         })
+         .catch(error=>{
+           setError(error.message)
+           setSuccess('')
+         })
+    }
+
+    const handleGithubLogin=()=>{
+      githubLogin()
+      .then(res=>{
+        setSuccess('Login with Github successful')
+        setError('')
+         })
+         .catch(error=>{
+           setError(error.message)
+           setSuccess('')
+         })
     }
     return (
         <div className='my-20 w-[400px] mx-auto border p-8'>
@@ -171,6 +191,7 @@ const Register = () => {
       color="success"
       pill={true}
       className='mx-auto'
+      onClick={handleGithubLogin}
     >
    Continue with GitHub
     </Button>
