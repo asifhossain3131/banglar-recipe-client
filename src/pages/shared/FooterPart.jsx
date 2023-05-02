@@ -2,9 +2,9 @@ import { Footer } from 'flowbite-react';
 import React from 'react';
 
 const FooterPart = () => {
-    return (
-        <>
-            <Footer bgDark={true}>
+  return (
+    <>
+  <Footer bgDark={true}>
   <div className="w-full">
     <div className="grid w-full grid-cols-2 gap-8 py-8 px-6 md:grid-cols-4">
       <div>
@@ -76,17 +76,17 @@ const FooterPart = () => {
     <div className="w-full bg-gray-700 py-6 px-4 sm:flex sm:items-center sm:justify-between">
       <Footer.Copyright
         href="#"
-        by="Banglar chefs"
+        by="Banglar Recipe™"
         year={2023}
       />
-      <div>
-      <img src="https://img.freepik.com/premium-psd/popular-social-media-icons-collection-sphere-logo-3d-render_611557-80.jpg?size=626&ext=jpg&ga=GA1.1.663062170.1681230249&semt=ais" alt="" className='w-[100px]' />
+      <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
+      <img className='w-[100px]' src="https://png.pngtree.com/png-clipart/20190515/original/pngtree-social-media-icons-set-png-image_3591936.jpg" alt="" />
       </div>
     </div>
   </div>
 </Footer>
-        </>
-    );
+    </>
+  );
 };
 
 export default FooterPart;
