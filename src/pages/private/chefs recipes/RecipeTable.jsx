@@ -1,13 +1,14 @@
 import { Rating, Table } from 'flowbite-react';
 import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
 
 const RecipeTable = ({recipe}) => {
-    console.log(recipe)
     const{cookingMethod, ingredients, rating,recipeName}=recipe
     const [filled,setFilled]=useState(false)
 
     const handlebookmarked=()=>{
 setFilled(true)
+toast.success('The recipe has been added to your favorite')
     }
     return (
         <>

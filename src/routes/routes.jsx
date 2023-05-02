@@ -7,6 +7,7 @@ import Login from "../pages/public/user/Login"
 import Register from "../pages/public/user/Register"
 import Blog from "../pages/public/Blog"
 import ChefRecipes from "../pages/private/chefs recipes/ChefRecipes"
+import PrivateRoutes from "../pages/private/private route/PrivateRoutes"
 
 const routes=createBrowserRouter([
 {
@@ -19,7 +20,7 @@ const routes=createBrowserRouter([
         },
         {
 path:'/chefRecipe/:id',
-element:<ChefRecipes></ChefRecipes>,
+element:<PrivateRoutes><ChefRecipes></ChefRecipes></PrivateRoutes>,
 loader:({params})=>fetch(`https://chef-recipe-server-asifhossain3131.vercel.app/chefRecipes/${params.id}`)
         },
         {
