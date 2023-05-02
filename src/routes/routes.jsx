@@ -5,6 +5,7 @@ import Main from "../layouts/Main"
 import Home from "../pages/public/home/Home"
 import Login from "../pages/public/user/Login"
 import Register from "../pages/public/user/Register"
+import Blog from "../pages/public/Blog"
 
 const routes=createBrowserRouter([
 {
@@ -14,6 +15,10 @@ const routes=createBrowserRouter([
         {
             path:'/',
             element:<Home></Home>
+        },
+        {
+path:'blog',
+element:<Blog></Blog>
         },
         {
             path:'login',

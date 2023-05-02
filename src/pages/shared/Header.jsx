@@ -1,10 +1,14 @@
 import { Avatar, Button, Dropdown, Navbar, Tooltip } from 'flowbite-react';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Header = () => {
-    const{user}=useContext(AuthContext)
+    const{user, logout}=useContext(AuthContext)
+
+    const handleLogOut=()=>{
+logout()
+    }
 
     return (
         <>
@@ -39,14 +43,14 @@ const Header = () => {
     >
       <Dropdown.Header>
         <span className="block text-sm">
-          Bonnie Green
+         {user?.displayName || 'Unknown'}
         </span>
         <span className="block truncate text-sm font-medium">
-          name@flowbite.com
+          {user?.email}
         </span>
       </Dropdown.Header>
       <Dropdown.Divider />
-      <Dropdown.Item>
+      <Dropdown.Item onClick={handleLogOut}>
         Sign out
       </Dropdown.Item>
     </Dropdown>
@@ -64,18 +68,16 @@ const Header = () => {
     <Navbar.Toggle />
   </div>
   <Navbar.Collapse>
-    <Navbar.Link
-      href="/navbars"
-      active={true}
-    >
-      Home
-    </Navbar.Link>
-    <Navbar.Link href="/navbars">
-      Blog
-    </Navbar.Link> 
-    <Navbar.Link href="/navbars">
-      About
-    </Navbar.Link>
+  <NavLink to='/'
+  className={({ isActive }) =>
+  isActive
+    ? "active"
+    : ''
+}
+  >Home</NavLink>
+  <NavLink to='/blog'>Blog</NavLink>
+  <NavLink to='/about'>About</NavLink>
+
   </Navbar.Collapse>
 </Navbar>
         </>
