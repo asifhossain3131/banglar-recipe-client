@@ -28,3 +28,11 @@
     width: 100%;
     height: 400px;
   }
+
+  .chefBanner{
+    background-image:linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./../src/assets/images/chefbanner.jpg');
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+  }
