@@ -1,10 +1,11 @@
 import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 
 const Login = () => {
   const {user, login, googleLogin,githubLogin,}=useContext(AuthContext)
+  const location=useLocation()
     const [error, setError]=useState('')
     const [success, setSuccess]=useState('')
 
@@ -49,7 +50,14 @@ const Login = () => {
         setError('Please check your email and password')
       })
     }
-    
+
+    let target=location?.state?.from?.pathname||'/'
+
+    const navigate=useNavigate()
+    const handleRoute=()=>{
+ navigate(target)
+    }
+  
     return (
         <div className='my-20 w-[400px] mx-auto border p-8'>
             <h1 className='my-8 font-bold text-4xl'>Login here</h1>
@@ -92,7 +100,7 @@ const Login = () => {
   </div>
 <span className='text-red-500'>{error}</span>
 <span className='text-green-500'>{success}</span>
-  <Button type="submit">
+  <Button type="submit" onClick={handleRoute}>
     Login
   </Button>
 </form>

@@ -21,7 +21,7 @@ toast.success('The recipe has been added to your favorite')
             ingredients.map(ingradient=><li>{ingradient}</li>)
         }
       </Table.Cell>
-      <Table.Cell>
+      <Table.Cell className='w-50px]'>
         {cookingMethod}
       </Table.Cell>
       <Table.Cell>

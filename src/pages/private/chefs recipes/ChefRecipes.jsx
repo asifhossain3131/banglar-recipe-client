@@ -1,12 +1,18 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigation } from 'react-router-dom';
 import ChefBanner from './ChefBanner';
 import { Table } from 'flowbite-react';
 import RecipeTable from './RecipeTable';
+import Loading from '../../components/Loading';
 
 const ChefRecipes = () => {
     const chef=useLoaderData()
     const{chefImage,chefName,likes,recipes,yearOfExperience,shortBio}=chef
+    
+    const navigation=useNavigation()
+    if(navigation.state==='loading'){
+      <Loading></Loading>
+    }
     return (
         <>
            <ChefBanner chef={chef}></ChefBanner> 
@@ -33,7 +39,7 @@ const ChefRecipes = () => {
 
   <Table.Body className="divide-y">
     {
-        recipes.map((recipe, i)=><RecipeTable key={i} recipe={recipe}></RecipeTable>)
+        recipes?.map((recipe, i)=><RecipeTable key={i} recipe={recipe}></RecipeTable>)
         }
    
   </Table.Body>

@@ -27,7 +27,7 @@ const ChefBanner = ({chef}) => {
   <b> Year Of Experience:</b> {yearOfExperience}
     </p>
     <p className="font-normal text-gray-700 dark:text-gray-400">
-  <b>Number Of Recipes:</b> {recipes.length}
+  <b>Number Of Recipes:</b> {recipes?.length}
     </p>
   </Card>
          </div>

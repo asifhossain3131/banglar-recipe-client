@@ -8,11 +8,13 @@ import Register from "../pages/public/user/Register"
 import Blog from "../pages/public/Blog"
 import ChefRecipes from "../pages/private/chefs recipes/ChefRecipes"
 import PrivateRoutes from "../pages/private/private route/PrivateRoutes"
+import ErrorPage from "../pages/shared/ErrorPage"
 
 const routes=createBrowserRouter([
 {
     path:'/',
     element:<Main></Main>,
+    errorElement:<ErrorPage></ErrorPage>,
     children:[
         {
             path:'/',
