@@ -36,3 +36,11 @@
     height: 100%;
     padding: 40px;
   }
+  .lazyLoad {
+    opacity: 1;
+    transition: all 1s ease-in-out;
+  }
+
+  .is-visible {
+    opacity: 1;
+  }

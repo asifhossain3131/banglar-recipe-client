@@ -1,6 +1,7 @@
 import { Button, Card } from 'flowbite-react';
 import React from 'react';
 import { FaAngleDoubleRight } from 'react-icons/fa';
+import LazyLoad from 'react-lazy-load';
 import { Link } from 'react-router-dom';
 
 const Chef = ({chef}) => {
@@ -8,7 +9,9 @@ const Chef = ({chef}) => {
     return (
         <div className="max-w-sm">
   <Card>
-    <img src={chefImage} alt="" className='h-[250px]' />
+   <LazyLoad height={300} offset={200} onContentVisible={() => { console.log('loadded')}}> 
+   <img src={chefImage} alt="" className='h-[250px]' loading='lazy'/>
+   </LazyLoad>
     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
     {chefName}
     </h5>
