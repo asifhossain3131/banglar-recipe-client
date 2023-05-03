@@ -30,17 +30,10 @@ const Blog = () => {
     </Accordion.Title>
     <Accordion.Content>
       <p className="mb-2 text-gray-500 dark:text-gray-400">
-        Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars, and more.
+       <b>Controlled components:-</b> Usually react controls its components and programmer doesn't need to control DOM as react does itself. Whenever a change is made, react components stores it in state and renders accordinly. As react components manage states and behavior itself, thus it is called controlled component.
       </p>
-      <p className="text-gray-500 dark:text-gray-400">
-        Check out this guide to learn how to 
-        <a
-          href="https://flowbite.com/docs/getting-started/introduction/"
-          className="text-blue-600 hover:underline dark:text-blue-500"
-        >
-          get started
-        </a>
-        and start developing websites even faster with components on top of Tailwind CSS.
+      <p className="mb-2 text-gray-500 dark:text-gray-400">
+       <b>Uncontrolled components:-</b> When we handle DOM by ourselves, react components don't control its behavior, meaning that it doesn't stores any changes or data in state. Instead, programmer has to do it manually. This kinds of components are called uncontrolled components.
       </p>
     </Accordion.Content>
   </Accordion.Panel>
@@ -50,17 +43,7 @@ const Blog = () => {
     </Accordion.Title>
     <Accordion.Content>
       <p className="mb-2 text-gray-500 dark:text-gray-400">
-        Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars, and more.
-      </p>
-      <p className="text-gray-500 dark:text-gray-400">
-        Check out this guide to learn how to 
-        <a
-          href="https://flowbite.com/docs/getting-started/introduction/"
-          className="text-blue-600 hover:underline dark:text-blue-500"
-        >
-          get started
-        </a>
-        and start developing websites even faster with components on top of Tailwind CSS.
+       We use props in react to pass data between components. If the components recieves wrong type of props data, then it causes bugs and unexpected errors in the app. To fix this, we can tell data type while passing props. Though javascript does not have its built in data type check method, but react has a package called <b>React Proptypes</b> that checks data type. While passing props, we can tell its data type. For exmaple, <b>PropTypes.array</b> that checks whether it is array or not. In this way, we can validate props.
       </p>
     </Accordion.Content>
   </Accordion.Panel>
@@ -70,17 +53,10 @@ const Blog = () => {
     </Accordion.Title>
     <Accordion.Content>
       <p className="mb-2 text-gray-500 dark:text-gray-400">
-        Flowbite is first conceptualized and designed using the Figma software so everything you see in the library has a design equivalent in our Figma file.
+  <b>Node.js:-</b> A javascript runtime environment as well as an open souce that is being designed to build scalable network app. It is built on google's V8 engine that makes its performance higher. As a server side technologyo for modern website like SPA, node.js plays an important role to render server side template.
       </p>
       <p className="text-gray-500 dark:text-gray-400">
-        Check out the
-        <a
-          href="https://flowbite.com/figma/"
-          className="text-blue-600 hover:underline dark:text-blue-500"
-        >
-          Figma design system
-        </a>
-        based on the utility classes from Tailwind CSS and components from Flowbite.
+    <b>Express.js:-</b> A node.js framework that makes it easy to build the server side faster and it's the major differnce between node.js and express.js. If we would write codes in node.js, it would take much time whereas express.js optimizes codes and makes it shorter. 
       </p>
     </Accordion.Content>
   </Accordion.Panel>
@@ -90,33 +66,9 @@ const Blog = () => {
     </Accordion.Title>
     <Accordion.Content>
       <p className="mb-2 text-gray-500 dark:text-gray-400">
-        The main difference is that the core components from Flowbite are open source under the MIT license, whereas Tailwind UI is a paid product. Another difference is that Flowbite relies on smaller and standalone components, whereas Tailwind UI offers sections of pages.
+      <b>Custom hook:-</b> Hooks are nothing, but javascript functions that can be reused over time. React has some built in hooks. But if we have a logic that might be used for multiple components, we can make our own hook and can use it. It's called custom hook. In custom hooks, we can keep multiple logics and nested functionality if we need. Custom hooks and built in hooks start with <b>use</b>. For example- useRender().
+      So, we will use custom hooks whenever we have our own logic that can't be worked with built in hooks.
       </p>
-      <p className="mb-2 text-gray-500 dark:text-gray-400">
-        However, we actually recommend using both Flowbite, Flowbite Pro, and even Tailwind UI as there is no technical reason stopping you from using the best of two worlds.
-      </p>
-      <p className="mb-2 text-gray-500 dark:text-gray-400">
-        Learn more about these technologies:
-      </p>
-      <ul className="list-disc pl-5 text-gray-500 dark:text-gray-400">
-        <li>
-          <a
-            href="https://flowbite.com/pro/"
-            className="text-blue-600 hover:underline dark:text-blue-500"
-          >
-            Flowbite Pro
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://tailwindui.com/"
-            rel="nofollow"
-            className="text-blue-600 hover:underline dark:text-blue-500"
-          >
-            Tailwind UI
-          </a>
-        </li>
-      </ul>
     </Accordion.Content>
   </Accordion.Panel>
 </Accordion>
