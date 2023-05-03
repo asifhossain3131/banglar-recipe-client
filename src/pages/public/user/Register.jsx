@@ -13,10 +13,8 @@ const Register = () => {
     const handleAccepted=e=>{
       setAccepted(e.target.checked)
     }
-
+// modal related 
     const [modal,setModal]=useState(false)
-    const [close,setClose]=useState(false)
-
     const handlemodal=()=>{
         setModal(true)
     }
@@ -25,6 +23,7 @@ const Register = () => {
         setModal(false)
     }
 
+    // handling registration 
     const handleRegister=e=>{
       e.preventDefault()
       const form=e.target 
@@ -74,6 +73,7 @@ const Register = () => {
          })
     }
 
+    // Showing loader while page loading 
     const navigation=useNavigation()
     if(navigation.state==='loading'){
         return <Loading></Loading>

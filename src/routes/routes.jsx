@@ -41,7 +41,7 @@ element:<Blog></Blog>
         },
         {
             path:'/menus/:categoryName',
-            element:<PrivateRoutes><Menus></Menus></PrivateRoutes>,
+            element:<Menus></Menus>,
             loader:({params})=>fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${params.categoryName}`)
         },
         {

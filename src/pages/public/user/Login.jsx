@@ -7,12 +7,16 @@ import Loading from '../../components/Loading';
 const Login = () => {
   const {user, login, googleLogin,githubLogin,}=useContext(AuthContext)
   const location=useLocation()
+  const navigate=useNavigate()
     const [error, setError]=useState('')
     const [success, setSuccess]=useState('')
-
+    let target=location?.state?.from?.pathname||'/'
+ 
+    // user login all functionalities
     const handleGoogleLogin=()=>{
       googleLogin()
       .then(res=>{
+        navigate(target)
      setSuccess('Login with Google successful')
      setError('')
       })
@@ -24,6 +28,7 @@ const Login = () => {
     const handleGithubLogin=()=>{
       githubLogin()
       .then(res=>{
+        navigate(target)
         setSuccess('Login with Github successful')
         setError('')
          })
@@ -44,6 +49,7 @@ const Login = () => {
 
       login(email,password)
       .then(res=>{
+        navigate(target)
         setSuccess('Login successful')
         form.reset()
       })
@@ -51,14 +57,7 @@ const Login = () => {
         setError('Please check your email and password')
       })
     }
-
-    let target=location?.state?.from?.pathname||'/'
-
-    const navigate=useNavigate()
-    const handleRoute=()=>{
- navigate(target)
-    }
-
+    
     const navigation=useNavigation()
     if(navigation.state==='loading'){
         return <Loading></Loading>
@@ -106,7 +105,7 @@ const Login = () => {
   </div>
 <span className='text-red-500'>{error}</span>
 <span className='text-green-500'>{success}</span>
-  <Button type="submit" onClick={handleRoute}>
+  <Button type="submit">
     Login
   </Button>
 </form>

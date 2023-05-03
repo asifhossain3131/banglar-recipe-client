@@ -1,5 +1,6 @@
 import { Button, Card } from 'flowbite-react';
 import React from 'react';
+import LazyLoad from 'react-lazy-load';
 import { Link } from 'react-router-dom';
 
 const CategoryFood = ({category}) => {
@@ -7,7 +8,7 @@ const CategoryFood = ({category}) => {
     return (
         <div className="max-w-sm">
         <Card>
-            <img src={strCategoryThumb} alt="" />
+        <LazyLoad><img src={strCategoryThumb} alt="" /></LazyLoad>
           <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
            {strCategory}
           </h5>

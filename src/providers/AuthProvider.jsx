@@ -11,9 +11,11 @@ const googleProvider=new GoogleAuthProvider()
 const githubProvider= new GithubAuthProvider()
 
 const AuthProvider = ({children}) => {
+    // all states are here 
 const [user, setUser]=useState(null);
 const [loading,setLoading]=useState(true)
 
+// user related all functionalities
 const createUser=(email,password)=>{
     setLoading(true)
     return createUserWithEmailAndPassword(auth,email,password)
@@ -52,7 +54,6 @@ useEffect(()=>{
         })
         return ()=>unsubscribe()
 },[])
-
 
 
     const authInfo={

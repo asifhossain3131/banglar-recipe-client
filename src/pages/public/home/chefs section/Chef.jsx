@@ -1,15 +1,18 @@
 import { Button, Card } from 'flowbite-react';
-import React from 'react';
+import React, { useState } from 'react';
 import { FaAngleDoubleRight } from 'react-icons/fa';
 import LazyLoad from 'react-lazy-load';
 import { Link } from 'react-router-dom';
 
 const Chef = ({chef}) => {
     const{chefId,chefName,chefImage,yearOfExperience,likes,recipes}=chef
+    const [isLoaded, setIsLoaded]=useState(true)
     return (
         <div className="max-w-sm">
   <Card>
-   <LazyLoad height={300} offset={200} onContentVisible={() => { console.log('loadded')}}> 
+   <LazyLoad className={({isLoaded})=>isLoaded?
+  'is-visible' : 'LazyLoad'
+  } height={300} offset={200} onContentVisible={() => {setIsLoaded(false)}}> 
    <img src={chefImage} alt="" className='h-[250px]' loading='lazy'/>
    </LazyLoad>
     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
