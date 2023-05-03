@@ -1,6 +1,8 @@
 import React from 'react';
 import Lottie from "lottie-react";
 import chef from './../../../assets/animations/19705-chef.json'
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css'
 
 const About = () => {
     return (
@@ -49,6 +51,22 @@ const About = () => {
       </p>
     </div>
     </div>
+</section>
+
+<section className='my-12'>
+  <h1 className='mt-4 mb-8 font-bold text-center text-4xl'>Find Us On</h1>
+  <div >
+  <MapContainer className='h-[400px] w-[400px] mx-auto' center={[23.795589203006493, 90.4016860399156]} zoom={13} scrollWheelZoom={false}>
+  <TileLayer
+    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+  />
+  <Marker position={[23.795589203006493, 90.4016860399156]}>
+    <Popup>
+      Our headquarter
+    </Popup>
+  </Marker>
+</MapContainer>
+  </div>
 </section>
         </>
     );

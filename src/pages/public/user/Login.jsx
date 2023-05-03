@@ -5,14 +5,17 @@ import { AuthContext } from '../../../providers/AuthProvider';
 import Loading from '../../components/Loading';
 
 const Login = () => {
+  // all hooks are here 
   const {user, login, googleLogin,githubLogin,}=useContext(AuthContext)
   const location=useLocation()
   const navigate=useNavigate()
     const [error, setError]=useState('')
     const [success, setSuccess]=useState('')
+    const[show, setShow]=useState(false)
     let target=location?.state?.from?.pathname||'/'
+
  
-    // user login all functionalities
+    // user login related all functionalities
     const handleGoogleLogin=()=>{
       googleLogin()
       .then(res=>{
@@ -91,16 +94,18 @@ const Login = () => {
     </div>
     <TextInput
       id="password1"
-      type="password"
+      type={show? "text" : 'password'}
       placeholder="Your password"
       required={true}
       name='password'
     />
   </div>
   <div className="flex items-center gap-2">
-    <Checkbox id="remember" />
+    <Checkbox id="remember"
+    onClick={showPassword=>setShow(!show)}
+    />
     <Label htmlFor="remember">
-      Remember me
+      Show password
     </Label>
   </div>
 <span className='text-red-500'>{error}</span>

@@ -10,6 +10,7 @@ const Register = () => {
     const [success, setSuccess]=useState('')
     const [accepted,setAccepted]=useState(false)
     
+    // terms accepted function 
     const handleAccepted=e=>{
       setAccepted(e.target.checked)
     }
