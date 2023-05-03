@@ -10,6 +10,7 @@ import ChefRecipes from "../pages/private/chefs recipes/ChefRecipes"
 import PrivateRoutes from "../pages/private/private route/PrivateRoutes"
 import ErrorPage from "../pages/shared/ErrorPage"
 import Menus from "../pages/public/home/category section/Menus"
+import About from "../pages/public/About/About"
 
 const routes=createBrowserRouter([
 {
@@ -42,6 +43,10 @@ element:<Blog></Blog>
             path:'/menus/:categoryName',
             element:<Menus></Menus>,
             loader:({params})=>fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${params.categoryName}`)
+        },
+        {
+            path:'about',
+            element:<About></About>
         }
     ]
 }

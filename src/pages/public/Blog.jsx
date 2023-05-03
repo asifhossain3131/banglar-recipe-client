@@ -3,6 +3,8 @@ import Loading from '../components/Loading';
 import { useNavigation } from 'react-router-dom';
 import { Accordion, Button } from 'flowbite-react';
 import { FaFileDownload, FaRegFilePdf } from 'react-icons/fa';
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import PdfFile from '../components/PdfFile';
 
 
 const Blog = () => {
@@ -15,11 +17,18 @@ const Blog = () => {
         <>
             <div className='bg-black text-white p-16 text-center'>
         <h1 className='font-bold text-2xl '>Most Frequantly Asked Questions</h1>
-        <Button className='mx-auto mt-4' gradientMonochrome="info">
+<PDFDownloadLink className='mx-auto mt-4' document={<PdfFile/>} fileName='Interview questions'>
+{({loading}) => (loading ?    <Button className='mx-auto mt-4' gradientMonochrome="info">
+      <FaRegFilePdf></FaRegFilePdf>
+      <span className='mx-2'>Loading document....</span>
+    </Button> : <Button className='mx-auto mt-4' gradientMonochrome="info">
       <FaRegFilePdf></FaRegFilePdf>
       <span className='mx-2'>Download All Questions</span>
       <FaFileDownload></FaFileDownload>
-    </Button>
+    </Button> )}
+</PDFDownloadLink>
+
+     
 </div>
 
         <div className='my-12'>
