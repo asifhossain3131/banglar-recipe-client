@@ -11,6 +11,7 @@ import PrivateRoutes from "../pages/private/private route/PrivateRoutes"
 import ErrorPage from "../pages/shared/ErrorPage"
 import Menus from "../pages/public/home/category section/Menus"
 import About from "../pages/public/About/About"
+import ForgetPassword from "../pages/public/user/ForgetPassword"
 
 const routes=createBrowserRouter([
 {
@@ -38,6 +39,10 @@ element:<Blog></Blog>
         {
             path:'register',
             element:<Register></Register>
+        },
+        {
+path:'/forgetPassword',
+element:<ForgetPassword></ForgetPassword>
         },
         {
             path:'/menus/:categoryName',

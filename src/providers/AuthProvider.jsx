@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, onAuthStateChanged,signInWithPopup, GoogleAuthProvider, GithubAuthProvider} from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, onAuthStateChanged,signInWithPopup, GoogleAuthProvider, GithubAuthProvider, sendPasswordResetEmail} from "firebase/auth";
 import app from '../firebase/firebase.config';
 
 
@@ -47,6 +47,12 @@ const githubLogin=()=>{
     return signInWithPopup(auth, githubProvider)
 }
 
+// reset password 
+const resetPassword=email=>{
+    return sendPasswordResetEmail(auth, email)
+}
+
+// user observer 
 useEffect(()=>{
     const unsubscribe=onAuthStateChanged(auth, currentUser=>{
         setUser(currentUser)
@@ -64,6 +70,7 @@ login,
 googleLogin,
 githubLogin,
 logout,
+resetPassword,
 loading
     }
     return (

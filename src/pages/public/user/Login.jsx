@@ -100,7 +100,8 @@ const Login = () => {
       name='password'
     />
   </div>
-  <div className="flex items-center gap-2">
+<div className='flex justify-between'>
+<div className="flex items-center gap-2">
     <Checkbox id="remember"
     onClick={showPassword=>setShow(!show)}
     />
@@ -108,6 +109,8 @@ const Login = () => {
       Show password
     </Label>
   </div>
+  <Link className='text-blue-700' to='/forgetPassword'>Forget passsword?</Link>
+</div>
 <span className='text-red-500'>{error}</span>
 <span className='text-green-500'>{success}</span>
   <Button type="submit">
