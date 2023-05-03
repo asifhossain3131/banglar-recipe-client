@@ -1,10 +1,15 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigation } from 'react-router-dom';
 import Menu from './Menu';
+import Loading from '../../../components/Loading';
 
 const Menus = () => {
     const data=useLoaderData()
     const menus=data.meals
+    const navigation=useNavigation()
+    if(navigation.state==='loading'){
+        return <Loading></Loading>
+    }
     return (
         <div className='mt-12'>
             <h1 className='font-bold text-2xl text-center'>Available Menus: {menus?.length}</h1>

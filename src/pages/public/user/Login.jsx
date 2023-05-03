@@ -1,7 +1,8 @@
 import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
 import React, { useContext, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useNavigation } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
+import Loading from '../../components/Loading';
 
 const Login = () => {
   const {user, login, googleLogin,githubLogin,}=useContext(AuthContext)
@@ -56,6 +57,11 @@ const Login = () => {
     const navigate=useNavigate()
     const handleRoute=()=>{
  navigate(target)
+    }
+
+    const navigation=useNavigation()
+    if(navigation.state==='loading'){
+        return <Loading></Loading>
     }
   
     return (

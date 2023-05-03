@@ -1,7 +1,8 @@
 import { Button, Checkbox, Label, Modal, TextInput } from 'flowbite-react';
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigation } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
+import Loading from '../../components/Loading';
 
 const Register = () => {
   const {createUser, profileUpdate,googleLogin,githubLogin}=useContext(AuthContext)
@@ -71,6 +72,11 @@ const Register = () => {
            setError(error.message)
            setSuccess('')
          })
+    }
+
+    const navigation=useNavigation()
+    if(navigation.state==='loading'){
+        return <Loading></Loading>
     }
     return (
         <div className='my-20 w-[400px] mx-auto border p-8'>
