@@ -7,6 +7,7 @@ import { useNavigation } from 'react-router-dom';
 import Loading from '../../components/Loading';
 
 const Home = () => {
+    // showing loader while loading 
     const navigation=useNavigation()
     if(navigation.state==='loading'){
         return <Loading></Loading>

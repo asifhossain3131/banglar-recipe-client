@@ -61,6 +61,7 @@ const Login = () => {
       })
     }
     
+        // showing loader while loading 
     const navigation=useNavigation()
     if(navigation.state==='loading'){
         return <Loading></Loading>
